@@ -1,7 +1,18 @@
 import React from 'react';
+import PropTypes from 'prop-types';
+import Main from '../pages/main/main';
 
-function App() {
-  return <p>Hello, world!</p>;
+export default function App(props) {
+  const {films} = props;
+  return (
+    <Main films = {films}/>
+  );
 }
 
-export default App;
+App.propTypes = {
+  films: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.number.isRequired,
+    }),
+  ).isRequired,
+};
